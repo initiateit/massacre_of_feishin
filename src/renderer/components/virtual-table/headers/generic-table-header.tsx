@@ -32,7 +32,7 @@ const HeaderText = styled(_Text)<{ $position: Options['position'] }>`
     height: 100%;
     font-weight: 500;
     line-height: inherit;
-    color: var(--ag-header-foreground-color);
+    color: var(--main-bg);
     text-align: ${(props) =>
         props.$position === 'right'
             ? 'flex-end'
@@ -40,40 +40,68 @@ const HeaderText = styled(_Text)<{ $position: Options['position'] }>`
             ? 'center'
             : 'flex-start'};
     text-transform: uppercase;
+    &:hover {
+        color: var(--main-fg);
+    }
+`;
+const HoverIcon = styled.span`
+    &:hover {
+        svg {
+            color: #222; // The color on hover
+        }
+    }
+`;
+
+const StyledMoreFill = styled(RiMoreFill)`
+    color: var(--main-bg);
+`;
+
+const StyledRiHeartLine = styled(RiHeartLine)`
+    color: var(--main-bg);
+`;
+
+const StyledFiClock = styled(FiClock)`
+    color: var(--main-bg);
+`;
+
+const StyledAiOutlineNumber = styled(AiOutlineNumber)`
+    color: var(--main-bg);
+`;
+
+const StyledRiStarLine = styled(RiStarLine)`
+    color: var(--main-bg);
 `;
 
 const headerPresets = {
     actions: (
-        <RiMoreFill
-            color="var(--ag-header-foreground-color)"
-            size="1em"
-        />
+        <HoverIcon>
+            <StyledMoreFill size="1em" />
+        </HoverIcon>
     ),
     duration: (
-        <FiClock
-            color="var(--ag-header-foreground-color)"
-            size="1em"
-        />
+        <HoverIcon>
+            <StyledFiClock size="1em" />
+        </HoverIcon>
     ),
     rowIndex: (
-        <AiOutlineNumber
-            color="var(--ag-header-foreground-color)"
-            size="1em"
-        />
+        <HoverIcon>
+            <StyledAiOutlineNumber size="1em" />
+        </HoverIcon>
     ),
     userFavorite: (
-        <RiHeartLine
-            color="var(--ag-header-foreground-color)"
-            size="1em"
-        />
+        <HoverIcon>
+            <StyledRiHeartLine size="1em" />
+        </HoverIcon>
     ),
     userRating: (
-        <RiStarLine
-            color="var(--ag-header-foreground-color)"
-            size="1em"
-        />
+        <HoverIcon>
+            <StyledRiStarLine size="1em" />
+        </HoverIcon>
     ),
+    // ... other presets
 };
+
+
 
 export const GenericTableHeader = (
     { displayName }: IHeaderParams,

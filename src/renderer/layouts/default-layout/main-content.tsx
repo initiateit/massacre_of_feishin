@@ -32,7 +32,7 @@ const MainContentContainer = styled.div<{
     grid-template-areas: 'sidebar . right-sidebar';
     grid-template-rows: 1fr;
     grid-template-columns: ${(props) =>
-            props.$sidebarCollapsed ? '80px' : props.$leftSidebarWidth} 1fr ${(props) =>
+            props.$sidebarCollapsed ? '120px' : props.$leftSidebarWidth} 1fr ${(props) =>
             props.$rightExpanded && props.$rightSidebarWidth};
 
     gap: 0;

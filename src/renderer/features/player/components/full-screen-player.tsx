@@ -225,7 +225,7 @@ const Controls = () => {
                     </Option>
                     <Option>
                         <Option.Label>
-                            {t('page.fullscreenPlayer.config.lyricSize', {
+                            {t('page.fullscreenPlayer.config.lyric', {
                                 postProcess: 'sentenceCase',
                             })}
                         </Option.Label>

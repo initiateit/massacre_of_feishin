@@ -46,7 +46,7 @@ const BackgroundImage = styled.div<{ $background: string }>`
     z-index: 1;
     width: 100%;
     height: 100%;
-    background: ${(props) => props.$background || 'var(--titlebar-bg)'};
+    background: ${(props) => props.$background || 'var(--main-bg)'};
 `;
 
 const BackgroundImageOverlay = styled.div<{ theme: 'light' | 'dark' }>`
@@ -56,9 +56,11 @@ const BackgroundImageOverlay = styled.div<{ theme: 'light' | 'dark' }>`
     z-index: 10;
     width: 100%;
     height: 100%;
+    border-bottom: var(--sidebar-border);
+    box-shadow: 2px 10px 16px -13px rgba(0,0,0,0.15);
     background: ${(props) =>
         props.theme === 'light'
-            ? 'linear-gradient(rgba(255, 255, 255, 25%), rgba(255, 255, 255, 25%))'
+            ? 'var(--main-bg)'
             : 'linear-gradient(rgba(0, 0, 0, 50%), rgba(0, 0, 0, 50%))'};
 `;
 

@@ -8,7 +8,7 @@ export * from './context-menu';
 export * from './date-picker';
 export * from './dialog';
 export * from './dropdown-menu';
-export * from './feature-carousel';
+
 export * from './hover-card';
 export * from './input';
 export * from './modal';

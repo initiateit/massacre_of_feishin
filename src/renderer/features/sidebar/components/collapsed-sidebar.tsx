@@ -72,7 +72,7 @@ export const CollapsedSidebar = () => {
                         grow
                         spacing={0}
                         style={{
-                            borderRight: 'var(--sidebar-border)',
+                            borderRight: 'none',
                         }}
                     >
                         <CollapsedSidebarButton

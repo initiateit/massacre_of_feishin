@@ -219,7 +219,6 @@ export const CenterControls = ({ playersRef }: CenterControlsProps) => {
                         />
                     )}
                     <PlayerButton
-                        disabled={currentSong?.id === undefined}
                         icon={
                             status === PlayerStatus.PAUSED ? (
                                 <RiPlayFill size={20} />

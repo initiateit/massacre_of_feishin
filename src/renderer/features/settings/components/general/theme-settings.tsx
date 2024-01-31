@@ -1,5 +1,5 @@
-import { ColorInput, Stack } from '@mantine/core';
-import { Switch, Select } from '/@/renderer/components';
+import { ColorPicker, Stack } from '@mantine/core';
+import { Switch, Select, Text } from '/@/renderer/components';
 import {
     SettingsSection,
     SettingOption,
@@ -123,7 +123,7 @@ export const ThemeSettings = () => {
         {
             control: (
                 <Stack align="center">
-                    <ColorInput
+                    <ColorPicker
                         defaultValue={settings.accent}
                         format="rgb"
                         swatches={[
@@ -134,7 +134,6 @@ export const ThemeSettings = () => {
                             'rgb(170, 110, 216)',
                         ]}
                         swatchesPerRow={5}
-                        withEyeDropper={false}
                         onChangeEnd={(e) => {
                             setSettings({
                                 general: {
@@ -144,6 +143,7 @@ export const ThemeSettings = () => {
                             });
                         }}
                     />
+                    <Text>{settings.accent}</Text>
                 </Stack>
             ),
             description: t('setting.accentColor', {

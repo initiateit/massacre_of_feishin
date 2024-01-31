@@ -10,7 +10,7 @@ import { getNodesByDiscNumber, setNodeSelection } from '../utils';
 const Container = styled(Paper)`
     display: flex;
     height: 100%;
-    padding: 0.5rem 1rem;
+    padding: 1rem 0;
     border: 1px solid transparent;
 `;
 
@@ -32,15 +32,7 @@ export const FullWidthDiscCell = ({ node, data, api }: ICellRendererParams) => {
                 position="apart"
                 w="100%"
             >
-                <Button
-                    compact
-                    leftIcon={isSelected ? <RiCheckboxLine /> : <RiCheckboxBlankLine />}
-                    size="md"
-                    variant="subtle"
-                    onClick={handleToggleDiscNodes}
-                >
-                    {data.name}
-                </Button>
+               
             </Group>
         </Container>
     );

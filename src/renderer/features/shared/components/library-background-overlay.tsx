@@ -10,5 +10,5 @@ export const LibraryBackgroundOverlay = styled.div<{ $backgroundColor?: string }
     user-select: none;
     background: ${(props) => props.$backgroundColor};
     background-image: var(--bg-subheader-overlay);
-    opacity: 0.3;
+    opacity: 0;
 `;

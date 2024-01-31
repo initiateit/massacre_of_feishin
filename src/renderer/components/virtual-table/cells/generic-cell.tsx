@@ -9,7 +9,7 @@ export const CellContainer = styled.div<{ $position?: 'left' | 'center' | 'right
     align-items: center;
     justify-content: ${(props) =>
         props.$position === 'right'
-            ? 'flex-end'
+            ? 'flex-start'
             : props.$position === 'center'
             ? 'center'
             : 'flex-start'};

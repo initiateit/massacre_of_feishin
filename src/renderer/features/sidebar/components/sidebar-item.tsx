@@ -13,7 +13,7 @@ interface ListItemProps extends FlexProps {
 const StyledItem = styled(Flex)`
     width: 100%;
     font-family: var(--content-font-family);
-    font-weight: 600;
+    
 
     &:focus-visible {
         border: 1px solid var(--primary-color);

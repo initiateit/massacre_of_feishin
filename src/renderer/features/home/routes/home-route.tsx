@@ -7,7 +7,7 @@ import {
     SongListSort,
     SortOrder,
 } from '/@/renderer/api/types';
-import { FeatureCarousel, NativeScrollArea, Spinner, TextTitle } from '/@/renderer/components';
+import { NativeScrollArea, Spinner, TextTitle } from '/@/renderer/components';
 import { useAlbumList } from '/@/renderer/features/albums';
 import { useRecentlyPlayed } from '/@/renderer/features/home/queries/recently-played-query';
 import { AnimatedPage, LibraryHeaderBar } from '/@/renderer/features/shared';
@@ -231,7 +231,6 @@ const HomeRoute = () => {
                     px="2rem"
                     spacing="lg"
                 >
-                    <FeatureCarousel data={featureItemsWithImage} />
                     {carousels
                         .filter((carousel) => {
                             if (

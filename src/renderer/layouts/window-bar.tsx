@@ -116,11 +116,20 @@ const WindowsControls = ({ controls, title }: WindowBarControlsProps) => {
 const MacOsContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100vw;
     -webkit-app-region: drag;
-    color: var(--window-bar-fg);
-    background-color: var(--window-bar-bg);
+    color: var(--window-bar-bg);
+    background-color: var(--main-bg);
+`;
+
+const MacOsSpacer = styled.div`
+    flex: 0 0 120px;
+    height: 100%;
+    background: var(--sidebar-bg);
+    border-right: 1px rgba(220, 220, 220, 70%) solid;
+    justify-content: flex-start;
+    align-content: flex-start;
 `;
 
 const MacOsButtonGroup = styled.div`
@@ -130,7 +139,6 @@ const MacOsButtonGroup = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 20px);
     height: 100%;
-
     -webkit-app-region: no-drag;
 `;
 
@@ -163,6 +171,7 @@ const MacOsControls = ({ controls, title }: WindowBarControlsProps) => {
 
     return (
         <MacOsContainer>
+            <MacOsSpacer></MacOsSpacer>
             <MacOsButtonGroup>
                 <MacOsButton
                     $minButton

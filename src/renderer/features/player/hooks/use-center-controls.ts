@@ -138,10 +138,7 @@ export const useCenterControls = (args: { playersRef: any }) => {
             mpvPlayer?.volume(usePlayerStore.getState().volume);
             mpvPlayer!.play();
         } else {
-            currentPlayerRef
-                .getInternalPlayer()
-                ?.play()
-                .catch(() => {});
+            currentPlayerRef.getInternalPlayer().play();
         }
 
         play();

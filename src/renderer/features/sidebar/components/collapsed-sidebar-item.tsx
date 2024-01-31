@@ -12,7 +12,7 @@ const Container = styled(Flex)<{ $active?: boolean; $disabled?: boolean }>`
     pointer-events: ${(props) => (props.$disabled ? 'none' : 'all')};
     cursor: ${(props) => (props.$disabled ? 'default' : 'pointer')};
     user-select: ${(props) => (props.$disabled ? 'none' : 'initial')};
-    border-right: var(--sidebar-border);
+    border: none;
     opacity: ${(props) => props.$disabled && 0.6};
 
     svg {

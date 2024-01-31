@@ -23,10 +23,7 @@ export const gaplessHandler = (args: {
 
     const durationPadding = isFlac ? 0.065 : 0.116;
     if (currentTime + durationPadding >= duration) {
-        return nextPlayerRef.current
-            .getInternalPlayer()
-            ?.play()
-            .catch(() => {});
+        return nextPlayerRef.current.getInternalPlayer()?.play();
     }
 
     return null;
@@ -64,10 +61,7 @@ export const crossfadeHandler = (args: {
 
         if (shouldBeginTransition) {
             setIsTransitioning(true);
-            return nextPlayerRef.current
-                .getInternalPlayer()
-                ?.play()
-                .catch(() => {});
+            return nextPlayerRef.current.getInternalPlayer().play();
         }
         return null;
     }

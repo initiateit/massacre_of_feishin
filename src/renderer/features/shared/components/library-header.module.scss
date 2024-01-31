@@ -4,13 +4,13 @@
     grid-template-areas: 'image info';
     grid-template-rows: 100%;
     grid-template-columns: 175px minmax(0, 1fr);
-    gap: 1rem;
+    gap: 5rem;
     width: 100%;
     max-width: 100%;
     height: 30vh;
     min-height: 340px;
     max-height: 500px;
-    padding: 5rem 2rem 2rem;
+    padding: 3rem 12rem 2rem;
 
     :global(.item-image-placeholder) {
         width: 175px !important;
@@ -27,6 +27,7 @@
 
         h1 {
             font-size: 3rem;
+            font-weight:500;
         }
 
         .image {
@@ -45,6 +46,7 @@
 
         h1 {
             font-size: 3.5rem;
+            font-weight:500;
         }
 
         .image {
@@ -62,7 +64,7 @@
         grid-template-columns: 225px minmax(0, 1fr);
 
         h1 {
-            font-size: 4.5rem;
+            font-size: 2.75rem;
         }
 
         .image {
@@ -80,7 +82,8 @@
         grid-template-columns: 250px minmax(0, 1fr);
 
         h1 {
-            font-size: 5rem;
+            font-size: 3.75rem;
+            font-weight:500;
         }
 
         .image {
@@ -96,7 +99,8 @@
 
     @container (min-width: 1500px) {
         h1 {
-            font-size: 5.5rem;
+            font-size: 3.75rem;
+            font-weight:500;
         }
     }
 }
@@ -105,10 +109,10 @@
     z-index: 15;
     display: flex;
     grid-area: image;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     height: 100%;
-    filter: drop-shadow(0 0 8px rgb(0, 0, 0, 50%));
+    filter: drop-shadow(0 0 8px rgb(0, 0, 0, 20%));
 }
 
 .metadata-section {
@@ -116,13 +120,13 @@
     display: flex;
     flex-direction: column;
     grid-area: info;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 100%;
 }
 
 .image {
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 
 .background {
@@ -131,7 +135,7 @@
     z-index: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.9;
+    opacity: 0;
 }
 
 .background-overlay {

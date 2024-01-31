@@ -17,7 +17,9 @@ import {
     VirtualTable,
     getColumnDefs,
 } from '/@/renderer/components/virtual-table';
+
 import { FullWidthDiscCell } from '/@/renderer/components/virtual-table/cells/full-width-disc-cell';
+
 import { useCurrentSongRowStyles } from '/@/renderer/components/virtual-table/hooks/use-current-song-row-styles';
 import { useAlbumDetail } from '/@/renderer/features/albums/queries/album-detail-query';
 import { useAlbumList } from '/@/renderer/features/albums/queries/album-list-query';
@@ -43,7 +45,7 @@ import {
 import { Play } from '/@/renderer/types';
 
 const isFullWidthRow = (node: RowNode) => {
-    return node.id?.startsWith('disc-');
+   return node.id?.startsWith('disc-');
 };
 
 const ContentContainer = styled.div`
@@ -54,7 +56,7 @@ const ContentContainer = styled.div`
 const DetailContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1rem 2rem 5rem;
+    padding: 1rem 12rem 4rem 12rem;
     overflow: hidden;
 `;
 
@@ -84,7 +86,7 @@ export const AlbumDetailContent = ({ tableRef, background }: AlbumDetailContentP
     const getRowHeight = useCallback(
         (params: RowHeightParams) => {
             if (isFullWidthRow(params.node)) {
-                return 45;
+                return 15;
             }
 
             return tableConfig.rowHeight;
@@ -413,6 +415,7 @@ export const AlbumDetailContent = ({ tableRef, background }: AlbumDetailContentP
                             status,
                         }}
                         enableCellChangeFlash={false}
+
                         fullWidthCellRenderer={FullWidthDiscCell}
                         getRowHeight={getRowHeight}
                         getRowId={(data) => data.data.id}

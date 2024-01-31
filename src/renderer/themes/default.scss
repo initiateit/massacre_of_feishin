@@ -127,13 +127,29 @@
         --ag-background-color: var(--table-bg);
         --ag-odd-row-background-color: var(--table-alt-bg);
         --ag-foreground-color: var(--table-fg);
-        --ag-row-hover-color: var(--table-row-hover-bg);
-        --ag-selected-row-background-color: var(--table-row-selected-bg);
+        --ag-row-hover-color: rgba(179, 179, 179, 0.05) !important;
+        --ag-selected-row-background-color: var(--main-bg)!important;
         --ag-cell-horizontal-padding: 0.5rem;
     }
 
+    .ag-row-even.ag-row-no-focus.ag-row.ag-row-level-0.ag-full-width-row.ag-row-position-absolute.ag-row-first {
+        display: none;
+    }
+
     .ag-header {
-        border-bottom: 2px solid var(--table-border-color);
+        border-bottom: 2px solid var(--main-bg);
+        background:var(--main-bg);
+    }
+    .ag-header-row{
+        color:var(--main-bg);
+    }
+
+    .ag-header-cell-text:hover{
+        color: var(--main-fg);
+    }
+    .ag-row:hover{
+        background: #fff;
+        color:var(--primary-color);
     }
 
     .ag-ltr .ag-header-cell-resize {
@@ -171,6 +187,12 @@
         display: block;
     }
 
+    .ag-row {
+        background: var(--main-bg);
+        border-bottom: 1px solid var(--sidebar-bg);
+    }
+
+
     .ag-row-hover {
         .ag-cell-transparent {
             opacity: 1;
@@ -187,7 +209,7 @@
     }
 
     .current-song {
-        background: var(--table-row-hover-bg);
+        background: var(--main-bg);
 
         .current-song-child {
             color: var(--primary-color) !important;

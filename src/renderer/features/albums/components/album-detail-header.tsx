@@ -10,6 +10,8 @@ import { useContainerQuery } from '/@/renderer/hooks';
 import { AppRoute } from '/@/renderer/router/routes';
 import { useCurrentServer } from '/@/renderer/store';
 import { formatDurationString } from '/@/renderer/utils';
+import { FullWidthDiscCell } from '/@/renderer/components/virtual-table/cells/full-width-disc-cell';
+import { AgGridReact } from '@ag-grid-community/react';
 
 interface AlbumDetailHeaderProps {
     background: string;
@@ -66,6 +68,7 @@ export const AlbumDetailHeader = forwardRef(
                     item={{ route: AppRoute.LIBRARY_ALBUMS, type: LibraryItem.ALBUM }}
                     title={detailQuery?.data?.name || ''}
                 >
+                    
                     <Stack spacing="sm">
                         <Group spacing="sm">
                             {metadataItems.map((item, index) => (
@@ -111,6 +114,7 @@ export const AlbumDetailHeader = forwardRef(
                                 >
                                     {artist.name}
                                 </Text>
+                                
                             ))}
                         </Group>
                     </Stack>

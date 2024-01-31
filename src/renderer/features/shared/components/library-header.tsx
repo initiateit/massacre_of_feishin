@@ -77,6 +77,9 @@ export const LibraryHeader = forwardRef(
                             to={item.route}
                             tt="uppercase"
                             weight={600}
+                            color={'rgb(105 104 104)!important'}
+                            style={{ letterSpacing: '1.5px' }} // Use camelCase and a style object
+
                         >
                             {itemTypeString()}
                         </Text>

@@ -60,7 +60,6 @@ export const PlayQueue = forwardRef(({ type }: QueueProps, ref: Ref<any>) => {
     const { play } = usePlayerControls();
     const volume = useVolume();
     const isFocused = useAppFocus();
-    const isFocusedRef = useRef<boolean>(isFocused);
 
     useEffect(() => {
         if (tableRef.current) {
@@ -173,7 +172,7 @@ export const PlayQueue = forwardRef(({ type }: QueueProps, ref: Ref<any>) => {
 
     const handleGridSizeChange = () => {
         if (tableConfig.autoFit) {
-            tableRef?.current?.api?.sizeColumnsToFit();
+            tableRef?.current?.api.sizeColumnsToFit();
         }
     };
 
@@ -212,29 +211,7 @@ export const PlayQueue = forwardRef(({ type }: QueueProps, ref: Ref<any>) => {
                 }
             }
         }
-    }, [currentSong, previousSong, tableConfig.followCurrentSong, status]);
-
-    // As a separate rule, update the current row when focus changes. This is
-    // to prevent queue scrolling when the application loses and then gains focus.
-    // The body should only fire when focus changes, even though it depends on current song
-    useEffect(() => {
-        if (isFocused !== isFocusedRef.current && tableRef?.current) {
-            const { api, columnApi } = tableRef.current;
-            if (api == null || columnApi == null) {
-                return;
-            }
-
-            const currentNode = currentSong?.uniqueId
-                ? api.getRowNode(currentSong.uniqueId)
-                : undefined;
-
-            if (currentNode) {
-                api.redrawRows({ rowNodes: [currentNode] });
-            }
-
-            isFocusedRef.current = isFocused;
-        }
-    }, [currentSong, isFocused]);
+    }, [currentSong, previousSong, tableConfig.followCurrentSong, status, isFocused]);
 
     const onCellContextMenu = useHandleTableContextMenu(LibraryItem.SONG, QUEUE_CONTEXT_MENU_ITEMS);
 

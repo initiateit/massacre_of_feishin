@@ -197,7 +197,7 @@ const normalizeAlbumArtist = (
             baseUrl: server?.url,
             coverArtId: `ar-${item.id}`,
             credential: server?.credential,
-            size: 300,
+            size: 100,
         });
     }
 

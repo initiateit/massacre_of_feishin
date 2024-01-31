@@ -66,7 +66,7 @@ export const sidebarItems = [
         route: AppRoute.LIBRARY_ALBUM_ARTISTS,
     },
     {
-        disabled: false,
+        disabled: true,
         id: 'Genres',
         label: i18n.t('page.sidebar.genres'),
         route: AppRoute.LIBRARY_GENRES,
@@ -78,7 +78,7 @@ export const sidebarItems = [
         route: AppRoute.LIBRARY_FOLDERS,
     },
     {
-        disabled: true,
+        disabled: false,
         id: 'Playlists',
         label: i18n.t('page.sidebar.playlists'),
         route: AppRoute.PLAYLISTS,
@@ -296,7 +296,7 @@ const initialState: SettingsState = {
             skipBackwardSeconds: 5,
             skipForwardSeconds: 10,
         },
-        theme: AppTheme.DEFAULT_DARK,
+        theme: AppTheme.DEFAULT_LIGHT,
         themeDark: AppTheme.DEFAULT_DARK,
         themeLight: AppTheme.DEFAULT_LIGHT,
         volumeWheelStep: 5,
@@ -317,7 +317,7 @@ const initialState: SettingsState = {
             next: { allowGlobal: true, hotkey: '', isGlobal: false },
             pause: { allowGlobal: true, hotkey: '', isGlobal: false },
             play: { allowGlobal: true, hotkey: '', isGlobal: false },
-            playPause: { allowGlobal: true, hotkey: 'space', isGlobal: false },
+            playPause: { allowGlobal: true, hotkey: '', isGlobal: false },
             previous: { allowGlobal: true, hotkey: '', isGlobal: false },
             rate0: { allowGlobal: true, hotkey: '', isGlobal: false },
             rate1: { allowGlobal: true, hotkey: '', isGlobal: false },
@@ -390,26 +390,14 @@ const initialState: SettingsState = {
             columns: [
                 {
                     column: TableColumn.TRACK_NUMBER,
-                    width: 50,
+                    width: 60,
                 },
                 {
-                    column: TableColumn.TITLE_COMBINED,
-                    width: 500,
+                    column: TableColumn.TITLE,
+                    width: 400,
                 },
                 {
                     column: TableColumn.DURATION,
-                    width: 100,
-                },
-                {
-                    column: TableColumn.BIT_RATE,
-                    width: 300,
-                },
-                {
-                    column: TableColumn.PLAY_COUNT,
-                    width: 100,
-                },
-                {
-                    column: TableColumn.LAST_PLAYED,
                     width: 100,
                 },
                 {

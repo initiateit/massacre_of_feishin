@@ -8,7 +8,7 @@ export interface PaperProps extends MantinePaperProps {
 }
 
 const StyledPaper = styled(MantinePaper)<PaperProps>`
-    background: var(--paper-bg);
+    background: var(--main-bg);
 `;
 
 export const Paper = ({ children, ...props }: PaperProps) => {
