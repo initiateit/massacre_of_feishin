@@ -373,11 +373,11 @@ const containerVariants: Variants = {
             background: dynamicBackground ? background : 'var(--main-bg)',
             height:
                 windowBarStyle === Platform.WINDOWS || windowBarStyle === Platform.MACOS
-                    ? 'calc(100vh - 120px)'
+                    ? 'calc(100vh - 90px)'
                     : 'calc(100vh - 90px)',
             left: 0,
             position: 'absolute',
-            top: 0,
+            top: -30,
             transition: {
                 background: {
                     duration: 0.5,
