@@ -21,34 +21,49 @@ import { PlayersRef } from '/@/renderer/features/player/ref/players-ref';
 const PlayerbarContainer = styled.div`
     width: 100vw;
     height: 100%;
-    border-top: var(--playerbar-border-top);
+    background: var(--main-bg);
 `;
 
 const PlayerbarControlsGrid = styled.div`
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-    gap: 1rem;
+    grid-template-columns: minmax(0, 120px) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
     height: 100%;
 
     @media (width <= 768px) {
-        grid-template-columns: minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 0.5fr);
+        grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 0.5fr);
     }
 `;
 
+const SpacerGridItem = styled.div`
+    border-right: 1px solid rgba(220, 220, 220, 70%);
+    align-self: center;
+    width: 120px;
+    background: var(--sidebar-bg);
+    height: 100%;
+    overflow: hidden;
+`;
+
 const RightGridItem = styled.div`
+    padding-right: 1rem;
+    border-top: 1px solid rgba(220, 220, 220, 70%);
     align-self: center;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background: var(--main-bg);
 `;
 
 const LeftGridItem = styled.div`
+    padding-left: 1rem;
+    border-top: 1px solid rgba(220, 220, 220, 70%);
     width: 100%;
     height: 100%;
     overflow: hidden;
+    background: var(--main-bg);
 `;
 
 const CenterGridItem = styled.div`
+    border-top: 1px solid rgba(220, 220, 220, 70%);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -86,6 +101,7 @@ export const Playerbar = () => {
     return (
         <PlayerbarContainer>
             <PlayerbarControlsGrid>
+                <SpacerGridItem />
                 <LeftGridItem>
                     <LeftControls />
                 </LeftGridItem>
