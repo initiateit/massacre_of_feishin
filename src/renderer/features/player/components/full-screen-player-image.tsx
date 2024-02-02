@@ -33,9 +33,9 @@ const ImageContainer = styled(motion.div)`
     align-items: flex-end;
     justify-content: center;
     max-width: 100%;
-    height: 65%;
+    height: 600px;
     aspect-ratio: 1/1;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 `;
 
 interface TransparentMetadataContainer {
@@ -43,7 +43,6 @@ interface TransparentMetadataContainer {
 }
 
 const MetadataContainer = styled(Stack)<TransparentMetadataContainer>`
-    padding: 1rem;
     border-radius: 5px;
 
     h1 {

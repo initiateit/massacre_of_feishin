@@ -358,26 +358,22 @@ const containerVariants: Variants = {
                     ? 'calc(100vh - 120px)'
                     : 'calc(100vh - 90px)',
             position: 'absolute',
-            top: '100vh',
+            transform: 'translateY(100vh)',
             transition: {
                 duration: 0.5,
                 ease: 'easeInOut',
             },
             width: '100vw',
-            y: -100,
         };
     },
     open: (custom) => {
-        const { dynamicBackground, background, windowBarStyle } = custom;
+        const { dynamicBackground, background } = custom;
         return {
             background: dynamicBackground ? background : 'var(--main-bg)',
-            height:
-                windowBarStyle === Platform.WINDOWS || windowBarStyle === Platform.MACOS
-                    ? 'calc(100vh - 90px)'
-                    : 'calc(100vh - 90px)',
+            height: '100vh',
             left: 0,
             position: 'absolute',
-            top: -30,
+            transform: 'translateY(-30px)',
             transition: {
                 background: {
                     duration: 0.5,
@@ -388,7 +384,7 @@ const containerVariants: Variants = {
                 ease: 'easeInOut',
             },
             width: '100vw',
-            y: 0,
+            zIndex: 300,
         };
     },
 };
