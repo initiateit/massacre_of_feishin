@@ -11,7 +11,6 @@ import macMaxHover from './assets/max-mac-hover.png';
 import macMax from './assets/max-mac.png';
 import macMinHover from './assets/min-mac-hover.png';
 import macMin from './assets/min-mac.png';
-import appIcon from '../../../assets/icons/32x32.png';
 
 const WindowsContainer = styled.div`
     display: flex;
@@ -49,16 +48,6 @@ const WindowsButton = styled.div<{ $exit?: boolean }>`
     }
 `;
 
-const PlayerStatusContainer = styled.div`
-    display: flex;
-    gap: 0.5rem;
-    max-width: 45vw;
-    padding-left: 1rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-`;
-
 const browser = isElectron() ? window.electron.browser : null;
 const close = () => browser.exit();
 const minimize = () => browser.minimize();
@@ -71,23 +60,13 @@ interface WindowBarControlsProps {
         handleMaximize: () => void;
         handleMinimize: () => void;
     };
-    title: string;
 }
 
-const WindowsControls = ({ controls, title }: WindowBarControlsProps) => {
+const WindowsControls = ({ controls }: WindowBarControlsProps) => {
     const { handleClose, handleMaximize, handleMinimize } = controls;
 
     return (
         <WindowsContainer>
-            <PlayerStatusContainer>
-                <img
-                    alt=""
-                    height={18}
-                    src={appIcon}
-                    width={18}
-                />
-                {title}
-            </PlayerStatusContainer>
             <WindowsButtonGroup>
                 <WindowsButton
                     role="button"
@@ -162,7 +141,7 @@ export const MacOsButton = styled.div<{
     }
 `;
 
-const MacOsControls = ({ controls, title }: WindowBarControlsProps) => {
+const MacOsControls = ({ controls }: WindowBarControlsProps) => {
     const { handleClose, handleMaximize, handleMinimize } = controls;
 
     const [hoverMin, setHoverMin] = useState(false);
@@ -171,7 +150,7 @@ const MacOsControls = ({ controls, title }: WindowBarControlsProps) => {
 
     return (
         <MacOsContainer>
-            <MacOsSpacer></MacOsSpacer>
+            <MacOsSpacer />
             <MacOsButtonGroup>
                 <MacOsButton
                     $minButton
@@ -218,7 +197,6 @@ const MacOsControls = ({ controls, title }: WindowBarControlsProps) => {
                     />
                 </MacOsButton>
             </MacOsButtonGroup>
-            <PlayerStatusContainer>{title}</PlayerStatusContainer>
         </MacOsContainer>
     );
 };
@@ -255,16 +233,10 @@ export const WindowBar = () => {
     return (
         <>
             {windowBarStyle === Platform.WINDOWS && (
-                <WindowsControls
-                    controls={{ handleClose, handleMaximize, handleMinimize }}
-                    title={title}
-                />
+                <WindowsControls controls={{ handleClose, handleMaximize, handleMinimize }} />
             )}
             {windowBarStyle === Platform.MACOS && (
-                <MacOsControls
-                    controls={{ handleClose, handleMaximize, handleMinimize }}
-                    title={title}
-                />
+                <MacOsControls controls={{ handleClose, handleMaximize, handleMinimize }} />
             )}
         </>
     );

@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useRef } from 'react';
 import { ActionIcon, Group, Stack } from '@mantine/core';
 import {
     AlbumListSort,
@@ -29,23 +29,23 @@ const HomeRoute = () => {
     const itemsPerPage = 15;
     const { windowBarStyle } = useWindowSettings();
 
-    const feature = useAlbumList({
-        options: {
-            cacheTime: 1000 * 60,
-            staleTime: 1000 * 60,
-        },
-        query: {
-            limit: 20,
-            sortBy: AlbumListSort.RANDOM,
-            sortOrder: SortOrder.DESC,
-            startIndex: 0,
-        },
-        serverId: server?.id,
-    });
+    // const feature = useAlbumList({
+    //     options: {
+    //         cacheTime: 1000 * 60,
+    //         staleTime: 1000 * 60,
+    //     },
+    //     query: {
+    //         limit: 20,
+    //         sortBy: AlbumListSort.RANDOM,
+    //         sortOrder: SortOrder.DESC,
+    //         startIndex: 0,
+    //     },
+    //     serverId: server?.id,
+    // });
 
-    const featureItemsWithImage = useMemo(() => {
-        return feature.data?.items?.filter((item) => item.imageUrl) ?? [];
-    }, [feature.data?.items]);
+    // const featureItemsWithImage = useMemo(() => {
+    //     return feature.data?.items?.filter((item) => item.imageUrl) ?? [];
+    // }, [feature.data?.items]);
 
     const random = useAlbumList({
         options: {
@@ -227,7 +227,7 @@ const HomeRoute = () => {
             >
                 <Stack
                     mb="5rem"
-                    pt={windowBarStyle === Platform.WEB ? '5rem' : '3rem'}
+                    pt={windowBarStyle === Platform.WEB ? '5rem' : '1.5rem'}
                     px="2rem"
                     spacing="lg"
                 >

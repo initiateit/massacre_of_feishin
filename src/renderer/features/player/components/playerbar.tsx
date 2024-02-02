@@ -26,7 +26,7 @@ const PlayerbarContainer = styled.div`
 
 const PlayerbarControlsGrid = styled.div`
     display: grid;
-    grid-template-columns: minmax(0, 120px) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 120px) minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
     height: 100%;
 
     @media (width <= 768px) {

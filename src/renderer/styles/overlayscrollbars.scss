@@ -9,7 +9,11 @@
     --os-track-bg-active: var(--scrollbar-track-bg);
 
     --os-padding-perpendicular: 0;
-    --os-padding-axis: 0;
+    --os-padding-axis: 5rem;
     --os-track-border-radius: 0;
-    --os-handle-border-radius: 0;
+    --os-handle-border-radius: 6px;
+}
+
+.os-scrollbar-vertical .os-scrollbar-handle {
+    height: 100px !important;
 }

@@ -57,7 +57,6 @@ const BackgroundImageOverlay = styled.div<{ theme: 'light' | 'dark' }>`
     width: 100%;
     height: 100%;
     border-bottom: var(--sidebar-border);
-    box-shadow: 2px 10px 16px -13px rgba(0,0,0,0.15);
     background: ${(props) =>
         props.theme === 'light'
             ? 'var(--main-bg)'
