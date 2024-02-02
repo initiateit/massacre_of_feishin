@@ -1,15 +1,12 @@
 import { useRef } from 'react';
 import { useParams } from 'react-router';
-import { LibraryItem } from '/@/renderer/api/types';
 import { NativeScrollArea, Spinner } from '/@/renderer/components';
 import { AlbumArtistDetailContent } from '/@/renderer/features/artists/components/album-artist-detail-content';
 import { AlbumArtistDetailHeader } from '/@/renderer/features/artists/components/album-artist-detail-header';
 import { useAlbumArtistDetail } from '/@/renderer/features/artists/queries/album-artist-detail-query';
-import { usePlayQueueAdd } from '/@/renderer/features/player';
 import { AnimatedPage, LibraryHeaderBar } from '/@/renderer/features/shared';
 import { useFastAverageColor } from '/@/renderer/hooks';
 import { useCurrentServer } from '/@/renderer/store';
-import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
 
 const AlbumArtistDetailRoute = () => {
     const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -17,8 +14,6 @@ const AlbumArtistDetailRoute = () => {
     const server = useCurrentServer();
 
     const { albumArtistId } = useParams() as { albumArtistId: string };
-    const handlePlayQueueAdd = usePlayQueueAdd();
-    const playButtonBehavior = usePlayButtonBehavior();
     const detailQuery = useAlbumArtistDetail({
         query: { id: albumArtistId },
         serverId: server?.id,
@@ -28,16 +23,6 @@ const AlbumArtistDetailRoute = () => {
         src: detailQuery.data?.imageUrl,
         srcLoaded: !detailQuery.isLoading,
     });
-
-    const handlePlay = () => {
-        handlePlayQueueAdd?.({
-            byItemType: {
-                id: [albumArtistId],
-                type: LibraryItem.ALBUM_ARTIST,
-            },
-            playType: playButtonBehavior,
-        });
-    };
 
     if (!background || colorId !== albumArtistId) {
         return <Spinner container />;
@@ -51,7 +36,7 @@ const AlbumArtistDetailRoute = () => {
                     backgroundColor: background,
                     children: (
                         <LibraryHeaderBar>
-                            <LibraryHeaderBar.PlayButton onClick={handlePlay} />
+                            {/* <LibraryHeaderBar.PlayButton onClick={handlePlay} /> */}
                             <LibraryHeaderBar.Title>
                                 {detailQuery?.data?.name}
                             </LibraryHeaderBar.Title>

@@ -4,7 +4,6 @@ import { QueueSong } from '/@/renderer/api/types';
 import { Button, DropdownMenu, PageHeader, SpinnerIcon, Paper } from '/@/renderer/components';
 import { usePlayQueueAdd } from '/@/renderer/features/player';
 import { LibraryHeaderBar } from '/@/renderer/features/shared';
-import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
 import { Play } from '/@/renderer/types';
 
 interface AlbumArtistDetailTopSongsListHeaderProps {
@@ -20,8 +19,6 @@ export const AlbumArtistDetailTopSongsListHeader = ({
 }: AlbumArtistDetailTopSongsListHeaderProps) => {
     const { t } = useTranslation();
     const handlePlayQueueAdd = usePlayQueueAdd();
-    const playButtonBehavior = usePlayButtonBehavior();
-
     const handlePlay = async (playType: Play) => {
         handlePlayQueueAdd?.({
             byData: data,
@@ -32,7 +29,7 @@ export const AlbumArtistDetailTopSongsListHeader = ({
     return (
         <PageHeader p="1rem">
             <LibraryHeaderBar>
-                <LibraryHeaderBar.PlayButton onClick={() => handlePlay(playButtonBehavior)} />
+                {/* <LibraryHeaderBar.PlayButton onClick={() => handlePlay(playButtonBehavior)} /> */}
                 <LibraryHeaderBar.Title>Top songs from {title}</LibraryHeaderBar.Title>
                 <Paper
                     fw="600"

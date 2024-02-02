@@ -7,9 +7,6 @@ import { useParams } from 'react-router';
 import { useFastAverageColor } from '/@/renderer/hooks';
 import { AlbumDetailContent } from '/@/renderer/features/albums/components/album-detail-content';
 import { AlbumDetailHeader } from '/@/renderer/features/albums/components/album-detail-header';
-import { usePlayQueueAdd } from '/@/renderer/features/player';
-import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
-import { LibraryItem } from '/@/renderer/api/types';
 import { useCurrentServer } from '/@/renderer/store';
 
 const AlbumDetailRoute = () => {
@@ -25,18 +22,6 @@ const AlbumDetailRoute = () => {
         src: detailQuery.data?.imageUrl,
         srcLoaded: !detailQuery.isLoading,
     });
-    const handlePlayQueueAdd = usePlayQueueAdd();
-    const playButtonBehavior = usePlayButtonBehavior();
-
-    const handlePlay = () => {
-        handlePlayQueueAdd?.({
-            byItemType: {
-                id: [albumId],
-                type: LibraryItem.ALBUM,
-            },
-            playType: playButtonBehavior,
-        });
-    };
 
     if (!background || colorId !== albumId) {
         return <Spinner container />;
@@ -50,7 +35,7 @@ const AlbumDetailRoute = () => {
                     backgroundColor: background,
                     children: (
                         <LibraryHeaderBar>
-                            <LibraryHeaderBar.PlayButton onClick={handlePlay} />
+                            {/* <LibraryHeaderBar.PlayButton onClick={handlePlay} /> */}
                             <LibraryHeaderBar.Title>
                                 {detailQuery?.data?.name}
                             </LibraryHeaderBar.Title>

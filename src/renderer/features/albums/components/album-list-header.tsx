@@ -16,7 +16,6 @@ import {
     useCurrentServer,
     useListStoreActions,
     useListStoreByKey,
-    usePlayButtonBehavior,
 } from '/@/renderer/store';
 import { ListDisplayType } from '/@/renderer/types';
 import { titleCase } from '/@/renderer/utils';
@@ -33,9 +32,8 @@ export const AlbumListHeader = ({ itemCount, gridRef, tableRef, title }: AlbumLi
     const server = useCurrentServer();
     const { setFilter, setTablePagination } = useListStoreActions();
     const cq = useContainerQuery();
-    const { pageKey, handlePlay } = useListContext();
+    const { pageKey } = useListContext();
     const { display, filter } = useListStoreByKey({ key: pageKey });
-    const playButtonBehavior = usePlayButtonBehavior();
 
     const { handleRefreshGrid, handleRefreshTable } = useListFilterRefresh({
         itemType: LibraryItem.ALBUM,
@@ -69,9 +67,9 @@ export const AlbumListHeader = ({ itemCount, gridRef, tableRef, title }: AlbumLi
                     w="100%"
                 >
                     <LibraryHeaderBar>
-                        <LibraryHeaderBar.PlayButton
+                        {/* <LibraryHeaderBar.PlayButton
                             onClick={() => handlePlay?.({ playType: playButtonBehavior })}
-                        />
+                        /> */}
                         <LibraryHeaderBar.Title>
                             {title ||
                                 titleCase(t('page.albumList.title', { postProcess: 'titleCase' }))}

@@ -3,15 +3,15 @@ import type { AgGridReact as AgGridReactType } from '@ag-grid-community/react/li
 import { Stack } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
-import { LibraryItem } from '/@/renderer/api/types';
+// import { LibraryItem } from '/@/renderer/api/types';
 import { Badge, PageHeader, Paper, SpinnerIcon } from '/@/renderer/components';
-import { usePlayQueueAdd } from '/@/renderer/features/player';
+// import { usePlayQueueAdd } from '/@/renderer/features/player';
 import { PlaylistDetailSongListHeaderFilters } from '/@/renderer/features/playlists/components/playlist-detail-song-list-header-filters';
 import { usePlaylistDetail } from '/@/renderer/features/playlists/queries/playlist-detail-query';
 import { LibraryHeaderBar } from '/@/renderer/features/shared';
 import { useCurrentServer } from '/@/renderer/store';
-import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
-import { Play } from '/@/renderer/types';
+// import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
+// import { Play } from '/@/renderer/types';
 
 interface PlaylistDetailHeaderProps {
     handleToggleShowQueryBuilder: () => void;
@@ -28,16 +28,16 @@ export const PlaylistDetailSongListHeader = ({
     const { playlistId } = useParams() as { playlistId: string };
     const server = useCurrentServer();
     const detailQuery = usePlaylistDetail({ query: { id: playlistId }, serverId: server?.id });
-    const handlePlayQueueAdd = usePlayQueueAdd();
+    // const handlePlayQueueAdd = usePlayQueueAdd();
 
-    const handlePlay = async (playType: Play) => {
-        handlePlayQueueAdd?.({
-            byItemType: { id: [playlistId], type: LibraryItem.PLAYLIST },
-            playType,
-        });
-    };
+    // const handlePlay = async (playType: Play) => {
+    //     handlePlayQueueAdd?.({
+    //         byItemType: { id: [playlistId], type: LibraryItem.PLAYLIST },
+    //         playType,
+    //     });
+    // };
 
-    const playButtonBehavior = usePlayButtonBehavior();
+    // const playButtonBehavior = usePlayButtonBehavior();
 
     if (detailQuery.isLoading) return null;
     const isSmartPlaylist = detailQuery?.data?.rules;
@@ -46,7 +46,7 @@ export const PlaylistDetailSongListHeader = ({
         <Stack spacing={0}>
             <PageHeader backgroundColor="var(--titlebar-bg)">
                 <LibraryHeaderBar>
-                    <LibraryHeaderBar.PlayButton onClick={() => handlePlay(playButtonBehavior)} />
+                    {/* <LibraryHeaderBar.PlayButton onClick={() => handlePlay(playButtonBehavior)} /> */}
                     <LibraryHeaderBar.Title>{detailQuery?.data?.name}</LibraryHeaderBar.Title>
                     <Paper
                         fw="600"
