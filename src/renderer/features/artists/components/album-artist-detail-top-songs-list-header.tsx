@@ -29,8 +29,10 @@ export const AlbumArtistDetailTopSongsListHeader = ({
     return (
         <PageHeader p="1rem">
             <LibraryHeaderBar>
-                {/* <LibraryHeaderBar.PlayButton onClick={() => handlePlay(playButtonBehavior)} /> */}
                 <LibraryHeaderBar.Title>Top songs from {title}</LibraryHeaderBar.Title>
+                <LibraryHeaderBar.Title>
+                    {t('page.albumArtistDetail.topSongsFrom', { title })}
+                </LibraryHeaderBar.Title>
                 <Paper
                     fw="600"
                     px="1rem"
@@ -54,7 +56,7 @@ export const AlbumArtistDetailTopSongsListHeader = ({
                             icon={<RiPlayFill />}
                             onClick={() => handlePlay(Play.NOW)}
                         >
-                            {t('player.add', { postProcess: 'sentenceCase' })}
+                            {t('player.play', { postProcess: 'sentenceCase' })}
                         </DropdownMenu.Item>
                         <DropdownMenu.Item
                             icon={<RiAddBoxFill />}

@@ -250,7 +250,16 @@ const HomeRoute = () => {
                                         property: 'name',
                                         route: {
                                             route: AppRoute.LIBRARY_ALBUMS_DETAIL,
-                                            slugs: [{ idProperty: 'id', slugProperty: 'albumId' }],
+                                            slugs: [
+                                                {
+                                                    idProperty:
+                                                        server?.type === ServerType.JELLYFIN &&
+                                                        carousel.itemType === LibraryItem.SONG
+                                                            ? 'albumId'
+                                                            : 'id',
+                                                    slugProperty: 'albumId',
+                                                },
+                                            ],
                                         },
                                     },
                                     {
@@ -271,7 +280,16 @@ const HomeRoute = () => {
                                 itemType={carousel.itemType}
                                 route={{
                                     route: AppRoute.LIBRARY_ALBUMS_DETAIL,
-                                    slugs: [{ idProperty: 'id', slugProperty: 'albumId' }],
+                                    slugs: [
+                                        {
+                                            idProperty:
+                                                server?.type === ServerType.JELLYFIN &&
+                                                carousel.itemType === LibraryItem.SONG
+                                                    ? 'albumId'
+                                                    : 'id',
+                                            slugProperty: 'albumId',
+                                        },
+                                    ],
                                 }}
                                 title={{
                                     label: (
