@@ -12,7 +12,6 @@ import { SongListHeaderFilters } from '/@/renderer/features/songs/components/son
 import { useContainerQuery } from '/@/renderer/hooks';
 import { useListFilterRefresh } from '/@/renderer/hooks/use-list-filter-refresh';
 import { SongListFilter, useCurrentServer, useListStoreActions } from '/@/renderer/store';
-import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
 import { ListDisplayType } from '/@/renderer/types';
 import { VirtualInfiniteGridRef } from '/@/renderer/components/virtual-grid';
 
@@ -26,7 +25,7 @@ interface SongListHeaderProps {
 export const SongListHeader = ({ gridRef, title, itemCount, tableRef }: SongListHeaderProps) => {
     const { t } = useTranslation();
     const server = useCurrentServer();
-    const { pageKey, handlePlay, customFilters } = useListContext();
+    const { pageKey, customFilters } = useListContext();
     const { setFilter, setTablePagination } = useListStoreActions();
     const { display, filter } = useListStoreByKey({ key: pageKey });
     const cq = useContainerQuery();
@@ -57,8 +56,6 @@ export const SongListHeader = ({ gridRef, title, itemCount, tableRef }: SongList
         }
     }, 500);
 
-    const playButtonBehavior = usePlayButtonBehavior();
-
     return (
         <Stack
             ref={cq.ref}
@@ -70,9 +67,6 @@ export const SongListHeader = ({ gridRef, title, itemCount, tableRef }: SongList
                     w="100%"
                 >
                     <LibraryHeaderBar>
-                        <LibraryHeaderBar.PlayButton
-                            onClick={() => handlePlay?.({ playType: playButtonBehavior })}
-                        />
                         <LibraryHeaderBar.Title>
                             {title || t('page.trackList.title', { postProcess: 'titleCase' })}
                         </LibraryHeaderBar.Title>

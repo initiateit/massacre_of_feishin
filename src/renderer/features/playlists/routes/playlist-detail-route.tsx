@@ -1,15 +1,12 @@
 import { useRef } from 'react';
 import type { AgGridReact as AgGridReactType } from '@ag-grid-community/react/lib/agGridReact';
 import { useParams } from 'react-router';
-import { LibraryItem } from '/@/renderer/api/types';
 import { NativeScrollArea, Spinner } from '/@/renderer/components';
-import { usePlayQueueAdd } from '/@/renderer/features/player';
 import { PlaylistDetailContent } from '/@/renderer/features/playlists/components/playlist-detail-content';
 import { PlaylistDetailHeader } from '/@/renderer/features/playlists/components/playlist-detail-header';
 import { usePlaylistDetail } from '/@/renderer/features/playlists/queries/playlist-detail-query';
 import { AnimatedPage, LibraryHeaderBar } from '/@/renderer/features/shared';
 import { useFastAverageColor } from '/@/renderer/hooks';
-import { usePlayButtonBehavior } from '/@/renderer/store/settings.store';
 import { useCurrentServer } from '../../../store/auth.store';
 
 const PlaylistDetailRoute = () => {
@@ -27,19 +24,6 @@ const PlaylistDetailRoute = () => {
         srcLoaded: !detailQuery?.isLoading,
     });
 
-    const handlePlayQueueAdd = usePlayQueueAdd();
-    const playButtonBehavior = usePlayButtonBehavior();
-
-    const handlePlay = () => {
-        handlePlayQueueAdd?.({
-            byItemType: {
-                id: [playlistId],
-                type: LibraryItem.PLAYLIST,
-            },
-            playType: playButtonBehavior,
-        });
-    };
-
     if (!background || colorId !== playlistId) {
         return <Spinner container />;
     }
@@ -52,7 +36,6 @@ const PlaylistDetailRoute = () => {
                     backgroundColor: background,
                     children: (
                         <LibraryHeaderBar>
-                            <LibraryHeaderBar.PlayButton onClick={handlePlay} />
                             <LibraryHeaderBar.Title>
                                 {detailQuery?.data?.name}
                             </LibraryHeaderBar.Title>
